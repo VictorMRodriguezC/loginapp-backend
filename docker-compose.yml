@@ -7,7 +7,7 @@ services:
     - "8080:8080"
     - "5005:5005"
     environment:
-      DB_IP: ${DB_HOST}
+      DB_IP: ${DB_IP}
       DB_PORT: ${DB_PORT}
       DB_DATABASE: ${DB_DATABASE}
       DB_USER: ${DB_USER}
