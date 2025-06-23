@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./
+    ports:
+    - "8080:8080"
+    - "5005:5005"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://host.docker.internal:5432/loginapp
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    restart: always
