@@ -17,4 +17,5 @@ COPY --from=build /usr/src/app/target/login-api.jar /usr/src/app/login-api.jar
 EXPOSE 8080
 
 # Comando para ejecutar la app
-ENTRYPOINT ["java","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005","-jar", "/usr/src/app/login-api.jar"]
+
+ENTRYPOINT ["java", "-jar", "/usr/src/app/login-api.jar"]
