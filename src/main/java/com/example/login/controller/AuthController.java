@@ -26,7 +26,7 @@ public class AuthController {
         User user = userService.register(request.getUsername(), request.getPassword());
         return ResponseEntity.ok("Usuario registrado: " + user.getUsername());
     }
-
+    //test deploy
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
         User user = userService.login(request.getUsername(), request.getPassword());
