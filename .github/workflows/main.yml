@@ -1,0 +1,27 @@
+name: Build & Deploy to Render
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Java and Maven
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 11
+
+      - name: Build the project
+        run: mvn clean package -DskipTests
+
+      - name: Trigger deploy on Render
+        run: |
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
